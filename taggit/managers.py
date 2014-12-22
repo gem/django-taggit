@@ -63,7 +63,7 @@ class TaggableManager(RelatedField):
         return manager
 
     def contribute_to_class(self, cls, name):
-        self.name = self.column = name
+        self.name = self.column = self.attname = name
         self.model = cls
         cls._meta.add_field(self)
         setattr(cls, name, self)
